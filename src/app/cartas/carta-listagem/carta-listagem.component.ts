@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CartasService } from '../../shared/service/cartas.service';
+import { CartaSeletor } from '../../shared/seletor/carta.seletor';
 
 export interface Carta{
   id: number;
@@ -17,15 +19,40 @@ export interface Carta{
 
 export class CartaListagemComponent implements OnInit {
 
-  public cartas: Carta[] = [
-    {id: 1, nome: 'Pelé', forca: 5,inteligencia: 5, velocidade: 5, dataCadastro: new Date()},
-    {id: 2, nome: 'Luciano K', forca: 2,inteligencia: 5, velocidade: 3, dataCadastro: new Date()},
-    {id: 3, nome: 'CR7', forca: 5,inteligencia: 3, velocidade: 4, dataCadastro: new Date()},
-  ];
+  public cartas: Carta[] = [];
+  public seletor: CartaSeletor = new CartaSeletor();
 
-  constructor() { }
+  constructor(private cartasService: CartasService) { }
 
   ngOnInit(): void {
+    this.consultarTodasCartas();
   }
 
+  private consultarTodasCartas() {
+    this.cartasService.listarTodas().subscribe(
+      resultado => {
+        //retorno bem sucedido da chamada http
+        this.cartas = resultado;
+      },
+      erro => {
+        // retorno com erros da chamada http
+
+        console.error('Erro ao consultar cartas', erro);
+      }
+    );
+    }
+    public pesquisar(){
+      this.cartasService.listarComSeletor(this.seletor).subscribe(
+        resultado => {
+          this.cartas = resultado;
+        },
+        erro => {
+          console.error('Erro ao consultar cartas', erro);
+        }
+      );
+    }
+    public limpar() {
+      this.seletor = new CartaSeletor();
+    }
 }
+

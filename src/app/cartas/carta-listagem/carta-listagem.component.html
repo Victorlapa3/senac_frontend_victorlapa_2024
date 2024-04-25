@@ -1,3 +1,66 @@
+<div class="container">
+  <h3 class="alert alert-success">Cartas disponíveis para X1: </h3>
+
+  <div class="card">
+    <div class="card-header bg-info">
+      <h5>Filtros</h5>
+    </div>
+    <div class="card-body">
+      <form>
+        <div class="row">
+          <div class="col-md-12">
+            <label for="nome">Nome:</label>
+            <input type="text" class="form-control" name="nome" id="nome" [(ngModel)]="seletor.nome">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label for="forcaMinima">Forca mínima:</label>
+            <input type="number" class="form-control" name="forcaMinima" id="forcaMinima" [(ngModel)]="seletor.forcaMinima">
+          </div>
+          <div class="col-md-3">
+            <label for="velocidadeMinima">Velocidade mínima:</label>
+            <input type="number" class="form-control" name="velocidadeMinima" id="velocidadeMinima" [(ngModel)]="seletor.velocidadeMinima">
+          </div>
+          <div class="col-md-3">
+            <label for="inteligenciaMinima">Inteligência mínima:</label>
+            <input type="number" class="form-control" name="inteligenciaMinima" [(ngModel)]="seletor.inteligenciaMinima">
+          </div>
+          <div class="col-md-3">
+            <label for="nome">&nbsp;</label>
+            <button type="button" class="form-control btn btn-warning"
+            (click)="limpar()">
+              <i class="bi bi-trash"></i> Limpar
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <label for="forcaMaxima">Forca máxima:</label>
+            <input type="number" class="form-control" name="forcaMaxima" id="forcaMaxima" [(ngModel)]="seletor.forcaMaxima">
+          </div>
+          <div class="col-md-3">
+            <label for="velocidadeMaxima">Velocidade máxima:</label>
+            <input type="number" class="form-control" name="velocidadeMaxima" id="velocidadeMaxima" [(ngModel)]="seletor.velocidadeMaxima">
+          </div>
+          <div class="col-md-3">
+            <label for="inteligenciaMaxima">inteligência máxima:</label>
+            <input type="number" class="form-control" name="inteligenciaMaxima" [(ngModel)]="seletor.inteligenciaMaxima">
+          </div>
+          <div class="col-md-3">
+            <label for="nome">&nbsp;</label>
+            <button type="button" class="form-control btn btn-primary"
+            (click)="pesquisar()" >
+
+              <i class="bi bi-search"></i> Pesquisar
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <br><br>
+
 <div>
   <table class="table table-striped">
     <thead>
@@ -18,4 +81,4 @@
             <td>{{ carta.dataCadastro | date: 'dd/MM/yyyy' }}</td>
         </tr>
   </table>
-</div>>
+</div>
