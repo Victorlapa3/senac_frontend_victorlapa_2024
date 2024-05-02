@@ -1,4 +1,4 @@
-export interface Carta{
+export class Carta{
 
   id: number;
   nome: string;

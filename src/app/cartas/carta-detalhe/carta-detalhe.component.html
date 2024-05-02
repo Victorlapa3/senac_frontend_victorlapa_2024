@@ -1,1 +1,47 @@
-<p>carta-detalhe works!</p>
+<div class="container">
+  <form>
+    <div class="card-header">
+      <h3>Nova Carta</h3>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="form-group col-md-12">
+          <label for="nome">Nome</label>
+          <input type="text" class="form-control" name="nome" [(ngModel)]="carta.nome" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="forca">Força</label>
+          {{carta.forca}}
+          <input type="range" class="form-range" name="forca" min="1" max="5" [(ngModel)]="carta.forca" required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="inteligencia">Inteligência</label>
+          {{carta.inteligencia}}
+          <input type="range" class="form-range" name="inteligencia" min="1" max="5" [(ngModel)]="carta.inteligencia"
+            required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-4">
+          <label for="velocidade">Velocidade</label>
+          {{carta.velocidade}}
+          <input type="range" class="form-range" name="velocidade" min="1" max="5" [(ngModel)]="carta.velocidade"
+            required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label>&nbsp;</label>
+          <button type="submit" class="form-control btn btn-warning" (click)="voltar()">
+              <i class="bi bi-arrow-left"></i> Voltar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

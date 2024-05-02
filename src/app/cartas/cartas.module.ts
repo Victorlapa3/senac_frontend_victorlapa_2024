@@ -6,11 +6,13 @@ import { CartasRoutingModule } from './cartas-routing.module';
 import { CartaListagemComponent } from './carta-listagem/carta-listagem.component';
 import { AppComponent } from '../app.component';
 import { FormsModule } from '@angular/forms';
+import { CartaDetalheComponent } from './carta-detalhe/carta-detalhe.component';
 
 
 @NgModule({
   declarations: [
-    CartaListagemComponent
+    CartaListagemComponent,
+    CartaDetalheComponent,
   ],
   imports: [
     CommonModule,
