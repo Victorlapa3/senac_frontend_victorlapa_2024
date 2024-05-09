@@ -16,20 +16,22 @@
         <div class="row">
           <div class="col-md-3">
             <label for="forcaMinima">Forca mínima:</label>
-            <input type="number" class="form-control" name="forcaMinima" id="forcaMinima" [(ngModel)]="seletor.forcaMinima">
+            <input type="number" class="form-control" name="forcaMinima" id="forcaMinima"
+              [(ngModel)]="seletor.forcaMinima">
           </div>
           <div class="col-md-3">
             <label for="velocidadeMinima">Velocidade mínima:</label>
-            <input type="number" class="form-control" name="velocidadeMinima" id="velocidadeMinima" [(ngModel)]="seletor.velocidadeMinima">
+            <input type="number" class="form-control" name="velocidadeMinima" id="velocidadeMinima"
+              [(ngModel)]="seletor.velocidadeMinima">
           </div>
           <div class="col-md-3">
             <label for="inteligenciaMinima">Inteligência mínima:</label>
-            <input type="number" class="form-control" name="inteligenciaMinima" [(ngModel)]="seletor.inteligenciaMinima">
+            <input type="number" class="form-control" name="inteligenciaMinima"
+              [(ngModel)]="seletor.inteligenciaMinima">
           </div>
           <div class="col-md-3">
             <label for="nome">&nbsp;</label>
-            <button type="button" class="form-control btn btn-warning"
-            (click)="limpar()">
+            <button type="button" class="form-control btn btn-warning" (click)="limpar()">
               <i class="bi bi-trash"></i> Limpar
             </button>
           </div>
@@ -37,20 +39,22 @@
         <div class="row">
           <div class="col-md-3">
             <label for="forcaMaxima">Forca máxima:</label>
-            <input type="number" class="form-control" name="forcaMaxima" id="forcaMaxima" [(ngModel)]="seletor.forcaMaxima">
+            <input type="number" class="form-control" name="forcaMaxima" id="forcaMaxima"
+              [(ngModel)]="seletor.forcaMaxima">
           </div>
           <div class="col-md-3">
             <label for="velocidadeMaxima">Velocidade máxima:</label>
-            <input type="number" class="form-control" name="velocidadeMaxima" id="velocidadeMaxima" [(ngModel)]="seletor.velocidadeMaxima">
+            <input type="number" class="form-control" name="velocidadeMaxima" id="velocidadeMaxima"
+              [(ngModel)]="seletor.velocidadeMaxima">
           </div>
           <div class="col-md-3">
             <label for="inteligenciaMaxima">inteligência máxima:</label>
-            <input type="number" class="form-control" name="inteligenciaMaxima" [(ngModel)]="seletor.inteligenciaMaxima">
+            <input type="number" class="form-control" name="inteligenciaMaxima"
+              [(ngModel)]="seletor.inteligenciaMaxima">
           </div>
           <div class="col-md-3">
             <label for="nome">&nbsp;</label>
-            <button type="button" class="form-control btn btn-primary"
-            (click)="pesquisar()" >
+            <button type="button" class="form-control btn btn-primary" (click)="pesquisar()">
 
               <i class="bi bi-search"></i> Pesquisar
             </button>
@@ -61,24 +65,33 @@
   </div>
   <br><br>
 
-<div>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Força</th>
-        <th>Velocidade</th>
-        <th>Inteligência</th>
-        <th>Cadastrada em:</th>
-      </tr>
-    </thead>
-    <tbody>
-        <tr scope="row" *ngFor="let carta of cartas">
-            <td>{{ carta.nome }}</td>
-            <td>{{ carta.forca }}</td>
-            <td>{{ carta.velocidade }}</td>
-            <td>{{ carta.inteligencia }}</td>
-            <td>{{ carta.dataCadastro | date: 'dd/MM/yyyy' }}</td>
+  <div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Força</th>
+          <th>Velocidade</th>
+          <th>Inteligência</th>
+          <th>Cadastrada em:</th>
         </tr>
-  </table>
-</div>
+      </thead>
+      <tbody>
+        <tr scope="row" *ngFor="let carta of cartas">
+          <td>{{ carta.nome }}</td>
+          <td>{{ carta.forca }}</td>
+          <td>{{ carta.velocidade }}</td>
+          <td>{{ carta.inteligencia }}</td>
+          <td>{{ carta.dataCadastro | date: 'dd/MM/yyyy' }}</td>
+          <td class="text-center">
+            <button class="btn btn-xs btn-info mr-12" (click)="editar(carta.id)">
+              <i class="bi bi-pencil"></i> Editar
+            </button>
+            &nbsp;
+            <button class="btn btn-xs btn-danger" (click)="excluir(carta)">
+              <i class="bi bi-x"></i> Excluir
+            </button>
+          </td>
+        </tr>
+    </table>
+  </div>

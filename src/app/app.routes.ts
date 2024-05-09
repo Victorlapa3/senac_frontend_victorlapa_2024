@@ -1,5 +1,5 @@
-import { Routes } from '@angular/router';
 import { CartasModule } from './cartas/cartas.module';
+import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'cartas', pathMatch: 'full'},
