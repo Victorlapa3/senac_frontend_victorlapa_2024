@@ -7,6 +7,11 @@ export const routes: Routes = [
     path: 'cartas',
     loadChildren: () =>
       import('./cartas/cartas.module').then((m) => m.CartasModule),
-
   },
+  {
+    path: 'carro',
+    loadChildren: () =>
+      import('./carros/carros.module').then((m) => m.CarrosModule),
+  },
+
 ];
